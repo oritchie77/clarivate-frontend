@@ -1,0 +1,25 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="435.51" height="426.42" viewBox="0 0 435.51 426.42">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #732876;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+
+      .cls-1 {
+        opacity: 0.6;
+      }
+
+      .cls-2 {
+        opacity: 0.8;
+      }
+    </style>
+  </defs>
+  <title>swirl</title>
+  <path class="cls-1" d="M279.24,4c113,34,177.14,153.12,143.18,266.15S269.3,447.28,156.27,413.33-20.87,260.21,13.09,147.18"/>
+  <path class="cls-2" d="M217.76,352.64a144,144,0,1,1,144-144"/>
+  <path class="cls-3" d="M161.63,160.06a74.25,74.25,0,1,1,7.52,104.73"/>
+</svg>
