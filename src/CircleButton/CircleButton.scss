@@ -1,0 +1,23 @@
+@import "../variables/Variables";
+
+.button {
+  background: $purple;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 10px 10px 50px grey;
+  svg {
+    height: 50%;
+    fill: $white;
+  }
+}
+
+.closeButton {
+  svg {
+    transform: rotate(45deg);
+  }
+}
+
