@@ -1,15 +1,10 @@
 import './App.scss';
-import CircleButton from "./CircleButton/CircleButton";
+import Main from "./Main/Main";
 
 function App() {
   return (
     <div className="App">
-      <CircleButton
-        svgType={'expand'}
-      />
-        <CircleButton
-            svgType={'closeButton'}
-        />
+      <Main />
     </div>
   );
 }
