@@ -11,9 +11,14 @@ const Thumbnail = (props) => {
                     </div>
                     <div className={'thumbnail-content-container'}>
                         {props.content}
+                        {props.unorderedList}
                     </div>
                     <div className={'button-container'}>
-                        <CircleButton />
+                        <CircleButton
+                            expanded={props.expanded}
+                            thumbnailId={props.thumbnailId}
+                            handleExpandButtonClick={props.handleExpandButtonClick}
+                        />
                     </div>
                 </div>
             </div>
@@ -26,7 +31,10 @@ const Thumbnail = (props) => {
                     {props.svg}
                 </div>
                 <div className={'button-container'}>
-                    <CircleButton />
+                    <CircleButton
+                        thumbnailId={props.thumbnailId}
+                        handleExpandButtonClick={props.handleExpandButtonClick}
+                    />
                 </div>
             </div>
             <div className={'compact thumbnail-title-container'}>

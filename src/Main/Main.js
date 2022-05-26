@@ -1,10 +1,42 @@
 import './Main.scss'
 import Thumbnail from "../Thumbnail/Thumbnail";
-import {useEffect, useState} from "react";
-
-const [Thumbnail1ExpandedStatus, setThumbnail1ExpandedStatus] = useState()
+import {useState} from "react";
 
 const Main = () => {
+
+    const handleExpandButtonClick = (thumbnailId) => {
+        if (!thumbnail1ExpandedStatus && thumbnailId === 1) {
+            setThumbnail1ExpandedStatus(true)
+            console.log('it worked')
+        } else if (thumbnail1ExpandedStatus && thumbnailId === 1){
+            setThumbnail1ExpandedStatus(false)
+        }
+        if (!thumbnail2ExpandedStatus && thumbnailId === 2) {
+            setThumbnail2ExpandedStatus(true)
+            console.log('it worked')
+        } else if (thumbnail2ExpandedStatus && thumbnailId === 2){
+            setThumbnail2ExpandedStatus(false)
+        }
+        if (!thumbnail3ExpandedStatus && thumbnailId === 3) {
+            setThumbnail3ExpandedStatus(true)
+            console.log('it worked')
+        } else if (thumbnail3ExpandedStatus && thumbnailId === 3){
+            setThumbnail3ExpandedStatus(false)
+        }
+        if (!thumbnail4ExpandedStatus && thumbnailId === 4) {
+            setThumbnail4ExpandedStatus(true)
+            console.log('it worked')
+        } else if (thumbnail4ExpandedStatus && thumbnailId === 4){
+            setThumbnail4ExpandedStatus(false)
+        }
+
+    }
+
+    const [thumbnail1ExpandedStatus, setThumbnail1ExpandedStatus] = useState(false)
+    const [thumbnail2ExpandedStatus, setThumbnail2ExpandedStatus] = useState(false)
+    const [thumbnail3ExpandedStatus, setThumbnail3ExpandedStatus] = useState(false)
+    const [thumbnail4ExpandedStatus, setThumbnail4ExpandedStatus] = useState(false)
+
     return (
         <main>
             <h1>Total knee replacements</h1>
@@ -14,28 +46,42 @@ const Main = () => {
             </h2>
             <div className={'thumbnail-container'}>
                 <Thumbnail
+                    thumbnailId={1}
                     svg={<img src={'sixtyfive.svg'}/>}
                     title={'Suboptimal in patients under 65'}
                     content={<p>Risks of revision surgery are especially pronounced in the younger patient who may be more physically active and, consequently, subject to multiple revision surgeries over a lifetime.</p>}
-                    expanded={true}
+                    expanded={thumbnail1ExpandedStatus}
+                    handleExpandButtonClick={handleExpandButtonClick}
                 />
                 <Thumbnail
+                    thumbnailId={2}
                     svg={<img src={'knee.svg'}/>}
                     title={'Potential for long-term pain outcomes'}
                     content={<p>The proportion of patients with unfavorable long-term pain outcomes following TKR is reported between 10% and 34%.</p>}
-                    expanded={false}
+                    expanded={thumbnail2ExpandedStatus}
+                    handleExpandButtonClick={handleExpandButtonClick}
                 />
                 <Thumbnail
+                    thumbnailId={3}
                     svg={<img src={'graph.svg'}/>}
                     title={'Increased risk of mortality'}
                     content={<p>The 30-day mortality rate for a total knee replacement is about 1 in 400.</p>}
-                    expanded={false}
+                    expanded={thumbnail3ExpandedStatus}
+                    handleExpandButtonClick={handleExpandButtonClick}
                 />
                 <Thumbnail
+                    thumbnailId={4}
                     svg={<img src={'swirl.svg'}/>}
                     title={'Risk of complication'}
-                    content={<ul>Complications include:<li>Stiffness of the knee</li><li>Infection of the wound</li><li>Infection of the joint, needing further surgery Artery or nerve damage</li><li>DVT</li><li>Break in the bone around the knee replacement</li></ul>}
-                    expanded={false}
+                    content={<p>Complications include:</p>}
+                    unorderedList={<ul>
+                        <li>Stiffness of the knee</li>
+                        <li>Infection of the wound</li>
+                        <li>Infection of the joint, needing further surgery Artery or nerve damage</li><li>DVT</li>
+                        <li>Break in the bone around the knee replacement</li>
+                        </ul>}
+                    expanded={thumbnail4ExpandedStatus}
+                    handleExpandButtonClick={handleExpandButtonClick}
                 />
 
             </div>

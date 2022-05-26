@@ -11,6 +11,9 @@
   h3 {
     color: $purple;
   }
+  p {
+    font-size: 1.3rem;
+  }
 }
 
 .thumbnail-box {
@@ -37,4 +40,8 @@
   transform: translateY(-50%) translateX(50%);
   top: 0;
   right: 0;
+}
+
+ul {
+  list-style-position: inside;
 }
