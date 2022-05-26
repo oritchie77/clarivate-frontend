@@ -47,7 +47,7 @@ const Main = () => {
             <div className={'thumbnail-container'}>
                 <Thumbnail
                     thumbnailId={1}
-                    svg={<img src={'sixtyfive.svg'}/>}
+                    svg={<img className={'sixtyFive'} src={'sixtyfive.svg'}/>}
                     title={'Suboptimal in patients under 65'}
                     content={<p>Risks of revision surgery are especially pronounced in the younger patient who may be more physically active and, consequently, subject to multiple revision surgeries over a lifetime.</p>}
                     expanded={thumbnail1ExpandedStatus}

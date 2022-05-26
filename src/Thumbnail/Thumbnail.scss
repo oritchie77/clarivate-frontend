@@ -29,6 +29,13 @@
 .thumbnail-svg-container {
   height: 200px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .sixtyFive {
+    height: 50%;
+    width: 50%;
+  }
   img {
     height: 100%;
     width: 100%;
@@ -45,3 +52,4 @@
 ul {
   list-style-position: inside;
 }
+
