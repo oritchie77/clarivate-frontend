@@ -4,28 +4,60 @@ import {useState} from "react";
 
 const Main = () => {
 
-    const handleExpandButtonClick = (thumbnailId) => {
+    const apiFetch = async (url) => {
+        let data = await fetch('http://localhost:3001'+url)
+        return await data.json()
+    }
+
+    const getClickCount = async (thumbnailId) => {
+        let apiClickCount = await apiFetch(`/thumbnail?id=${thumbnailId}`)
+        console.log(apiClickCount)
+        return apiClickCount.clickCount
+    }
+
+    const setNewClickCount = async (thumbnailId, clickCount) => {
+        await fetch('http://localhost:3001/thumbnail', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "thumbnailId" : thumbnailId,
+                "clickCount": clickCount
+            })
+        })
+    }
+
+    const incrementClickCount = async (thumbnailId) => {
+        let clickCount = await getClickCount(thumbnailId)
+        let incrementedClickCount = clickCount ++
+        await setNewClickCount(thumbnailId, incrementedClickCount)
+    }
+
+
+    const handleExpandButtonClick = async (thumbnailId) => {
         if (!thumbnail1ExpandedStatus && thumbnailId === 1) {
             setThumbnail1ExpandedStatus(true)
-            console.log('it worked')
+            await incrementClickCount(thumbnailId)
         } else if (thumbnail1ExpandedStatus && thumbnailId === 1){
             setThumbnail1ExpandedStatus(false)
         }
         if (!thumbnail2ExpandedStatus && thumbnailId === 2) {
             setThumbnail2ExpandedStatus(true)
-            console.log('it worked')
+            await incrementClickCount(thumbnailId)
         } else if (thumbnail2ExpandedStatus && thumbnailId === 2){
             setThumbnail2ExpandedStatus(false)
         }
         if (!thumbnail3ExpandedStatus && thumbnailId === 3) {
             setThumbnail3ExpandedStatus(true)
-            console.log('it worked')
+            await incrementClickCount(thumbnailId)
         } else if (thumbnail3ExpandedStatus && thumbnailId === 3){
             setThumbnail3ExpandedStatus(false)
         }
         if (!thumbnail4ExpandedStatus && thumbnailId === 4) {
             setThumbnail4ExpandedStatus(true)
-            console.log('it worked')
+            await incrementClickCount(thumbnailId)
         } else if (thumbnail4ExpandedStatus && thumbnailId === 4){
             setThumbnail4ExpandedStatus(false)
         }
@@ -36,6 +68,7 @@ const Main = () => {
     const [thumbnail2ExpandedStatus, setThumbnail2ExpandedStatus] = useState(false)
     const [thumbnail3ExpandedStatus, setThumbnail3ExpandedStatus] = useState(false)
     const [thumbnail4ExpandedStatus, setThumbnail4ExpandedStatus] = useState(false)
+
 
     return (
         <main>
