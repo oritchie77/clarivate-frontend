@@ -11,8 +11,7 @@ const Main = () => {
 
     const getClickCount = async (thumbnailId) => {
         let apiClickCount = await apiFetch(`/thumbnail?id=${thumbnailId}`)
-        console.log(apiClickCount)
-        return apiClickCount.clickCount
+        return apiClickCount.map(c => c.clickCount)
     }
 
     const setNewClickCount = async (thumbnailId, clickCount) => {
@@ -31,7 +30,7 @@ const Main = () => {
 
     const incrementClickCount = async (thumbnailId) => {
         let clickCount = await getClickCount(thumbnailId)
-        let incrementedClickCount = clickCount ++
+        let incrementedClickCount = clickCount[0] + 1
         await setNewClickCount(thumbnailId, incrementedClickCount)
     }
 
